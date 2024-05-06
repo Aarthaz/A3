@@ -4,14 +4,13 @@
  */
 package view;
 
-/**
- *
- * @author Pichau
- */
+import model.Ferramenta;
+import javax.swing.JOptionPane;
+
 public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
-    
     private Ferramenta objetoferramenta; //cria vinculo com Ferramenta.java
+
     /**
      * Creates new form FrmCadastroFerramenta
      */
@@ -32,11 +31,9 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         JTFNome = new javax.swing.JTextField();
         JTFMarca = new javax.swing.JTextField();
         JTFCusto = new javax.swing.JTextField();
-        JTFFase = new javax.swing.JTextField();
         JBCadastrar = new javax.swing.JButton();
         JBCcancelar = new javax.swing.JButton();
 
@@ -49,9 +46,12 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
         jLabel3.setText("Custo:");
 
-        jLabel4.setText("Fase");
-
         JBCadastrar.setText("Cadastrar");
+        JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCadastrarActionPerformed(evt);
+            }
+        });
 
         JBCcancelar.setText("Cancelar");
         JBCcancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,45 +77,41 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(JTFMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4))
+                                    .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(JTFCusto)
-                                        .addComponent(JTFFase)))))
+                                    .addComponent(JTFCusto))))
                         .addContainerGap(23, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JBCcancelar)
-                        .addGap(70, 70, 70)
                         .addComponent(JBCadastrar)
-                        .addGap(75, 75, 75))))
+                        .addGap(55, 55, 55)
+                        .addComponent(JBCcancelar)
+                        .addGap(92, 92, 92))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(JTFMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(JTFCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(JTFFase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBCadastrar)
-                    .addComponent(JBCcancelar))
-                .addGap(44, 44, 44))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(JTFMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(JTFCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(85, 163, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JBCadastrar)
+                            .addComponent(JBCcancelar))
+                        .addGap(70, 70, 70))))
         );
 
         pack();
@@ -124,6 +120,50 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     private void JBCcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCcancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_JBCcancelarActionPerformed
+
+    private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+        try {
+            //recebendo e validando os dados da interface
+            String nome = "";
+            String marca = "";
+            double custo = 0;
+
+            //mostra mensagem de aviso para condição nao atendida (minimo de caracteres)
+            if (this.JTFNome.getText().length() < 2) {
+                throw new Mensagens("Nome precisa de 2 caracteres no minimo");
+            } else {
+                nome = this.JTFNome.getText();
+            }
+
+            if (this.JTFMarca.getText().length() < 2) {
+                throw new Mensagens("Marca precisa de 2 caracteres no minimo");
+            } else {
+                marca = this.JTFMarca.getText();
+            }
+
+            /*if(this.JTFCusto.getText().length() <= 0){
+                throw new Mensagens("O valor deve ser maior que zero");
+            } else{
+                custo = Double.parseDouble(this.JTFCusto.getText());
+            } */ //mencionado apenas pela aplicação, pois a ferramenta pode ser gratis-
+            //envia os dados para o controlador cadastrar
+            if (this.objetoferramenta.insertFerramentaBD(nome, marca, custo)) {
+                JOptionPane.showMessageDialog(rootPane, "Ferramenta cadastrada com sucesso.");
+                //limpa os campos da interface
+                this.JTFNome.setText("");
+                this.JTFMarca.setText("");
+                this.JTFCusto.setText("");
+            }
+
+            //exibe a ferramenta cadastrada no console
+            //System.out.println(this.objetoferramenta.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } catch (NumberFormatException erro2) {
+            JOptionPane.showMessageDialog(null, "Informe um número válido.");
+        }
+        
+    }//GEN-LAST:event_JBCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,12 +204,10 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     private javax.swing.JButton JBCadastrar;
     private javax.swing.JButton JBCcancelar;
     private javax.swing.JTextField JTFCusto;
-    private javax.swing.JTextField JTFFase;
     private javax.swing.JTextField JTFMarca;
     private javax.swing.JTextField JTFNome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
