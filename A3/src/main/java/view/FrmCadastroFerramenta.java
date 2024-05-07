@@ -141,11 +141,12 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 marca = this.JTFMarca.getText();
             }
 
-            /*if(this.JTFCusto.getText().length() <= 0){
+            if(this.JTFCusto.getText().length() <= 0){
                 throw new Mensagens("O valor deve ser maior que zero");
             } else{
                 custo = Double.parseDouble(this.JTFCusto.getText());
-            } */ //mencionado apenas pela aplicação, pois a ferramenta pode ser gratis-
+            }  //mencionado apenas pela aplicação, pois a ferramenta pode ser gratis-
+            
             //envia os dados para o controlador cadastrar
             if (this.objetoferramenta.insertFerramentaBD(nome, marca, custo)) {
                 JOptionPane.showMessageDialog(rootPane, "Ferramenta cadastrada com sucesso.");
@@ -156,7 +157,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
             }
 
             //exibe a ferramenta cadastrada no console
-            //System.out.println(this.objetoferramenta.getMinhaLista().toString());
+            System.out.println(this.objetoferramenta.getMinhaLista().toString());
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {

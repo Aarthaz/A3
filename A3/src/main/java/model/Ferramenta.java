@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import dao.FerramentaDAO;
 
 public class Ferramenta extends Base {
-
+    
+    //atributos
     private String marca;
     private double custo;
 
@@ -39,11 +40,10 @@ public class Ferramenta extends Base {
 
     @Override
     public String toString() {
-        return super.toString() + "marca=" + marca
-                + ", custo=" + custo;
+        return super.toString() + "marca=" + marca + ", custo=" + custo;
     }
     
-    //abaixo os metodos para uso junto com o dao simulando a estrutura de camaas do banco de dados
+    //abaixo os metodos para uso junto com o dao simulando a estrutura de camadas do banco de dados
     
     //retorna a lista de ferramentas
     public ArrayList<Ferramenta> getMinhaLista(){
@@ -54,14 +54,14 @@ public class Ferramenta extends Base {
     public boolean insertFerramentaBD(String nome, String marca, double custo){
         int id = this.maiorID() + 1;
         Ferramenta objeto = new Ferramenta(id, nome, marca, custo);
-        getMinhaLista().add(objeto);
+        FerramentaDAO.minhaLista.add(objeto);
         return true;
     }
     
     //deleta uma ferramenta especifica pelo id
     public boolean deleteFerramentaBD(int id){
         int indice = this.procuraIndice(id);
-        getMinhaLista().remove(indice);
+        FerramentaDAO.minhaLista.remove(indice);
         return true;
     }
     
@@ -69,15 +69,15 @@ public class Ferramenta extends Base {
     public boolean updateFerramentaBD(int id, String nome, String marca, double custo){
         Ferramenta objeto = new Ferramenta(id, nome, marca, custo);
         int indice = this.procuraIndice(id);
-        getMinhaLista().set(indice, objeto);
+        FerramentaDAO.minhaLista.set(indice, objeto);
         return true;
     }
     
     //procura o indice de objeto da minhaLista que tem o id enviado
     private int procuraIndice(int id){
         int indice = -1;
-        for(int i = 0; i < getMinhaLista().size(); i++){
-            if(getMinhaLista().get(i).getId() == id){
+        for(int i = 0; i < FerramentaDAO.minhaLista.size(); i++){
+            if(FerramentaDAO.minhaLista.get(i).getId() == id){
                 indice = i;
             }
         }
@@ -87,7 +87,7 @@ public class Ferramenta extends Base {
     //carrega dados de uma ferramenta especifica pelo id
     public Ferramenta carregaFerramenta(int id){
         int indice = this.procuraIndice(id);
-        return getMinhaLista().get(indice);
+        return FerramentaDAO.minhaLista.get(indice);
     }
     
     //retorna o maior id do BD

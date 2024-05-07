@@ -28,7 +28,8 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 a.getId(),
                 a.getNome(),
                 a.getMarca(),
-                a.getCusto(),});
+                a.getCusto(),
+            });
         }
     }
 
@@ -231,11 +232,11 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 marca = this.JTFMarca.getText();
             }
             
-            /*if(this.JTFCusto.getText().length() <= 0){
+            if(this.JTFCusto.getText().length() <= 0){
                 throw new Mensagens("O valor deve ser maior que zero");
             } else{
                 custo = Double.parseDouble(this.JTFCusto.getText());
-            } */ //mencionado apenas pela aplicação, pois a ferramenta pode ser gratis-
+            }  //mencionado apenas pela aplicação, pois a ferramenta pode ser gratis-
             
             if (this.JTableFerramentas.getSelectedRow() == -1) {
                 throw new Mensagens("Primeiro Selecione uma Ferramenta para Alterar");
