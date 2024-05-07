@@ -12,8 +12,8 @@ public class FerramentaDAO {
         return minhaLista;
     }
     
-    public static void setMinhaLista(ArrayList<Ferramenta> minhaLista){
-        FerramentaDAO.minhaLista = minhaLista;
+    public static void setMinhaLista(ArrayList<Ferramenta> MinhaLista){
+        FerramentaDAO.minhaLista = MinhaLista;
     }
     
     public static int maiorID(){

@@ -7,17 +7,18 @@ public class Base {
     private int id;
     private String nome;
     
+    //construtor de objeto sem parametros
     public Base(){
         this(0,"");
     }
     
-    public Base(int is, String nome){
+    //construtor de objeto com parametros
+    public Base(int id, String nome){
         this.id = id;
         this.nome = nome;
     }
     
     //gets e sets
-
     public int getId() {
         return id;
     }
@@ -36,7 +37,6 @@ public class Base {
     
     @Override
     public String toString(){
-        return "id= " + id + ", nome= "
-                + nome;
+        return "id= " + id + ", nome= " + nome;
     }
 }
