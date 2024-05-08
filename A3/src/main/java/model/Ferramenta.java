@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import dao.FerramentaDAO;
 
 public class Ferramenta extends Base {
-    
+
     //atributos
     private String marca;
     private double custo;
+    FerramentaDAO dao;
 
     //construtor de objeto sem parametros
     public Ferramenta() {
@@ -19,6 +20,7 @@ public class Ferramenta extends Base {
         super(id, nome);
         this.marca = marca;
         this.custo = custo;
+        dao = new FerramentaDAO();
     }
 
     //getters e setters
@@ -42,56 +44,53 @@ public class Ferramenta extends Base {
     public String toString() {
         return super.toString() + "marca=" + marca + ", custo=" + custo;
     }
-    
+
     //abaixo os metodos para uso junto com o dao simulando a estrutura de camadas do banco de dados
-    
     //retorna a lista de ferramentas
-    public ArrayList<Ferramenta> getMinhaLista(){
-        return FerramentaDAO.getMinhaLista();
+    public ArrayList<Ferramenta> getMinhaLista() {
+        return dao.getMinhaLista();
     }
-    
+
     //cadastra nova ferramenta
-    public boolean insertFerramentaBD(String nome, String marca, double custo){
-        int id = this.maiorID() + 1;
+    public boolean insertFerramentaBD(String nome, String marca, double custo) {
+        int id = dao.maiorID() + 1;
         Ferramenta objeto = new Ferramenta(id, nome, marca, custo);
-        FerramentaDAO.minhaLista.add(objeto);
+        dao.insertFerramentaBD(objeto);
         return true;
     }
-    
+
     //deleta uma ferramenta especifica pelo id
-    public boolean deleteFerramentaBD(int id){
-        int indice = this.procuraIndice(id);
-        FerramentaDAO.minhaLista.remove(indice);
+    public boolean deleteFerramentaBD(int id) {
+        dao.deleteFerramentaBD(id);
         return true;
     }
-    
+
     //edita uma ferramenta especifica pelo id
-    public boolean updateFerramentaBD(int id, String nome, String marca, double custo){
+    public boolean updateFerramentaBD(int id, String nome, String marca, double custo) {
         Ferramenta objeto = new Ferramenta(id, nome, marca, custo);
-        int indice = this.procuraIndice(id);
-        FerramentaDAO.minhaLista.set(indice, objeto);
+        dao.updateFerramentaBD(objeto);
         return true;
     }
-    
+
     //procura o indice de objeto da minhaLista que tem o id enviado
-    private int procuraIndice(int id){
+    private int procuraIndice(int id) {
         int indice = -1;
-        for(int i = 0; i < FerramentaDAO.minhaLista.size(); i++){
-            if(FerramentaDAO.minhaLista.get(i).getId() == id){
+        for (int i = 0; i < dao.minhaLista.size(); i++) {
+            if (dao.minhaLista.get(i).getId() == id) {
                 indice = i;
             }
         }
         return indice;
     }
-    
+
     //carrega dados de uma ferramenta especifica pelo id
-    public Ferramenta carregaFerramenta(int id){
+    public Ferramenta carregaFerramenta(int id) {
         int indice = this.procuraIndice(id);
-        return FerramentaDAO.minhaLista.get(indice);
+        return dao.minhaLista.get(indice);
     }
-    
+
     //retorna o maior id do BD
-    public int maiorID(){
-        return FerramentaDAO.maiorID();
+    public int maiorID() {
+        return dao.maiorID();
     }
 }
