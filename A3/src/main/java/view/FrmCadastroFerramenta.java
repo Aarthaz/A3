@@ -46,6 +46,12 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
 
         jLabel3.setText("Custo:");
 
+        JTFNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFNomeActionPerformed(evt);
+            }
+        });
+
         JBCadastrar.setText("Cadastrar");
         JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +171,10 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_JBCadastrarActionPerformed
+
+    private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFNomeActionPerformed
 
     /**
      * @param args the command line arguments

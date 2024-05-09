@@ -7,28 +7,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Ferramenta;
+import model.Amigo;
 
-//simulando a persistencia de dados
-public class FerramentaDAO {
 
-    public ArrayList<Ferramenta> minhaLista = new ArrayList<>();
+public class AmigoDAO {
 
-    public ArrayList<Ferramenta> getMinhaLista() {
+    public ArrayList<Amigo> minhaLista = new ArrayList<>();
+
+    public ArrayList<Amigo> getMinhaLista() {
+
         minhaLista.clear();
 
         try {
             Statement stmt = this.getConexao().createStatement();
 
-            ResultSet res = stmt.executeQuery("SELECT * FROM tb_ferramentas");
+            ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigo");
             while (res.next()) {
 
                 int id = res.getInt("id");
                 String nome = res.getString("nome");
-                String marca = res.getString("marca");
-                double custo = res.getDouble("custo");
+                String telefone = res.getString("telefone");
+                
+                
 
-                Ferramenta objeto = new Ferramenta(id, nome, marca, custo);
+                Amigo objeto = new Amigo(id, nome, telefone);
                 minhaLista.add(objeto);
             }
 
@@ -38,21 +40,15 @@ public class FerramentaDAO {
         return minhaLista;
     }
 
-    //public void setMinhaLista(ArrayList<Ferramenta> MinhaLista) {
-    //}
-    //cadastra uma ferramenta
-    public boolean insertFerramentaBD(Ferramenta objeto) {
-        String sql = "INSERT INTO tb_ferramentas(id,nome,marca,custo) VALUES(?,?,?,?)";
+    public boolean insertAmigoBD(Amigo objeto) {
+        String sql = "INSERT INTO tb_amigo(id,nome,telefone) VALUES(?,?,?)";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setInt(1, objeto.getId());
             stmt.setString(2, objeto.getNome());
-            stmt.setString(3, objeto.getMarca());
-            stmt.setDouble(4, objeto.getCusto());
-
+            stmt.setString(3, objeto.getTelefone());        
             stmt.execute();
             stmt.close();
-
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro:" + erro);
@@ -60,53 +56,11 @@ public class FerramentaDAO {
         }
     }
 
-    //Carrega um aluno pelo ID
-    public Ferramenta carregaAluno(int id) {
-
-        Ferramenta objeto = new Ferramenta();
-        objeto.setId(id);
-        try {
-            Statement stmt = this.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM tb_ferramentas WHERE id = " + id);
-
-            res.next();
-            objeto.setNome(res.getString("nome"));
-            objeto.setMarca(res.getString("idade"));
-            objeto.setCusto(res.getDouble("curso"));
-
-            stmt.close();
-        } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
-        }
-        return objeto;
-    }
-
-    //altera uma ferramenta
-    public boolean updateFerramentaBD(Ferramenta objeto) {
-        String sql = "UPDATE tb_ferramentas set nome = ? , marca = ? , custo = ? WHERE id = ?";
-        try {
-            PreparedStatement stmt = this.getConexao().prepareStatement(sql);
-            stmt.setString(1, objeto.getNome());
-            stmt.setString(2, objeto.getMarca());
-            stmt.setDouble(3, objeto.getCusto());
-            stmt.setInt(4, objeto.getId());
-
-            stmt.execute();
-            stmt.close();
-
-            return true;
-        } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
-            throw new RuntimeException(erro);
-        }
-    }
-
-    //deleta uma ferramenta
-    public boolean deleteFerramentaBD(int id) {
+    public boolean deleteAmigoBD(int id) {
         try {
             Statement stmt = this.getConexao().createStatement();
 
-            stmt.executeUpdate("DELETE FROM tb_ferramentas WHERE id =" + id);
+            stmt.executeUpdate("DELETE FROM tb_amigo WHERE id =" + id);
 
             stmt.close();
         } catch (SQLException erro) {
@@ -115,11 +69,28 @@ public class FerramentaDAO {
         return true;
     }
 
+    public boolean updateAmigoBD(Amigo objeto) {
+        String sql = "UPDATE tb_amigo set nome = ? , telefone = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = this.getConexao().prepareStatement(sql);
+            stmt.setString(1, objeto.getNome());
+            stmt.setString(2, objeto.getTelefone());            
+            stmt.setInt(3, objeto.getId());
+            
+            stmt.execute();
+            stmt.close();
+            
+            return true;
+        } catch (SQLException erro) {
+            System.out.println("Erro:" + erro);
+            throw new RuntimeException(erro);
+        }
+    }    
     public int maiorID() {
         int maiorID = 0;
         try {
             Statement stmt = this.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_ferramentas");
+            ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_amigo");
             res.next();
             maiorID = res.getInt("id");
             stmt.close();
@@ -127,28 +98,25 @@ public class FerramentaDAO {
             System.out.println("erro: " + ex);
         }
 
+     
         return maiorID;
     }
 
     public Connection getConexao() {
-        Connection connection = null; //instância da conexão
+        Connection connection = null;
         try {
-
-            //carregamento do jdbc driver
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
 
-            //configurando a conexão
             String server = "localhost";
-            String database = "db_ferramentas";
-            String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
+            String database = "db_amigo";
+            String url = "jdbc:mysql://" + server + ":3306/"
+                    + database + "?useTimezone=true&serverTimezone=UTC";
             String user = "root";
             String password = "1234";
 
-            //conectando
             connection = DriverManager.getConnection(url, user, password);
 
-            //testando
             if (connection != null) {
                 System.out.println("connectado");
             } else {
@@ -166,4 +134,5 @@ public class FerramentaDAO {
             return null;
         }
     }
+
 }
