@@ -34,6 +34,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Realizar Empréstimo");
 
         jLabel1.setText("Selecione a Ferramenta:");
 

@@ -34,6 +34,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
 
         JBRelatorio.setText("Gerar Relatorio");
+        JBRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRelatorioActionPerformed(evt);
+            }
+        });
 
         jMenuArquivo.setText("Arquivo");
 
@@ -140,6 +145,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmEmprestimo objeto = new FrmEmprestimo();
         objeto.setVisible(true);
     }//GEN-LAST:event_JBEmprestimoActionPerformed
+
+    private void JBRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatorioActionPerformed
+        FrmRelatorio objeto = new FrmRelatorio();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_JBRelatorioActionPerformed
 
     /**
      * @param args the command line arguments
