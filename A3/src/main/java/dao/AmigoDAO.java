@@ -109,7 +109,7 @@ public class AmigoDAO {
             Class.forName(driver);
 
             String server = "localhost";
-            String database = "db_amigo";
+            String database = "db_ferramentas";
             String url = "jdbc:mysql://" + server + ":3306/"
                     + database + "?useTimezone=true&serverTimezone=UTC";
             String user = "root";
