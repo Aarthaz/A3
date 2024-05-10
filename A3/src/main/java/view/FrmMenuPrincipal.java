@@ -12,6 +12,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JBEmprestimo = new javax.swing.JButton();
+        JBRelatorio = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuItemNovaFerramenta = new javax.swing.JMenuItem();
@@ -22,7 +24,16 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de Ferramentas");
+        setTitle("Empréstimos");
+
+        JBEmprestimo.setText("Realizar Emprestimo");
+        JBEmprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEmprestimoActionPerformed(evt);
+            }
+        });
+
+        JBRelatorio.setText("Gerar Relatorio");
 
         jMenuArquivo.setText("Arquivo");
 
@@ -77,11 +88,24 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(JBEmprestimo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(JBRelatorio)))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 81, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(JBEmprestimo)
+                .addGap(42, 42, 42)
+                .addComponent(JBRelatorio)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,6 +135,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
        FrmGerenciarAmigo objeto = new FrmGerenciarAmigo();
        objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciarAlunosActionPerformed
+
+    private void JBEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimoActionPerformed
+        FrmEmprestimo objeto = new FrmEmprestimo();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_JBEmprestimoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +177,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBEmprestimo;
+    private javax.swing.JButton JBRelatorio;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenuArquivo;
     private javax.swing.JMenuBar jMenuBar1;
