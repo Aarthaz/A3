@@ -33,6 +33,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciar Amigos");
 
         jLabel1.setText("Nome");
 
