@@ -89,7 +89,7 @@ public class Amigo extends Base {
     }
 
     /**
-     * carrega dados de um amigo especÍfico pelo seu ID
+     * carrega dados de um amigo especÍfico pelo seu ID.
      */
     public Amigo carregaAmigo(int id) {
         int indice = this.procuraIndice(id);
