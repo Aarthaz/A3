@@ -76,7 +76,7 @@ public class Amigo extends Base {
     }
 
     /**
-     * procura o INDICE de objeto da MinhaLista que contem o ID enviado.
+     * procura o indice de objeto da MinhaLista que contem o ID enviado.
      */
     private int procuraIndice(int id) {
         int indice = -1;
