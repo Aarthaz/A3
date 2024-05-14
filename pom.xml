@@ -7,13 +7,11 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <exec.mainClass>com.mycompany.a3.A3</exec.mainClass>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <exec.mainClass>principal.Principal</exec.mainClass>
     </properties>
-    
-    
-    
+            <!--- conexão com o banco de dados -->
     <dependencies>
         <dependency>
             <groupId>com.mysql</groupId>
@@ -21,7 +19,4 @@
             <version>8.3.0</version>
         </dependency>
     </dependencies>
-
-    
-    
 </project>
