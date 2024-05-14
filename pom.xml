@@ -11,7 +11,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <exec.mainClass>principal.Principal</exec.mainClass>
     </properties>
-            <!--- conexão com o banco de dados -->
+    <!--- conexão com o banco de dados -->
     <dependencies>
         <dependency>
             <groupId>com.mysql</groupId>
