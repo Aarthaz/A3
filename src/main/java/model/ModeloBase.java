@@ -1,23 +1,22 @@
-
 package model;
 
+public class ModeloBase {
 
-public class Base {
     //atributos
     private int id;
     private String nome;
-    
+
     //construtor de objeto sem parametros
-    public Base(){
-        this(0,"");
+    public ModeloBase() {
+        this(0, "");
     }
-    
+
     //construtor de objeto com parametros
-    public Base(int id, String nome){
+    public ModeloBase(int id, String nome) {
         this.id = id;
         this.nome = nome;
     }
-    
+
     //gets e sets
     public int getId() {
         return id;
@@ -34,9 +33,9 @@ public class Base {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "id= " + id + ", nome= " + nome;
     }
 }

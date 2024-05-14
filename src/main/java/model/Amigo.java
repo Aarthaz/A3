@@ -3,7 +3,7 @@ package model;
 import dao.AmigoDAO;
 import java.util.ArrayList;
 
-public class Amigo extends Base {
+public class Amigo extends ModeloBase {
 
     /**
      * atributos
