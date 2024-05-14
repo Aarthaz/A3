@@ -145,9 +145,7 @@ public class FerramentaDAO extends BaseDAO {
          */
         try {
 
-
             //carregamento do jdbc driver
-             
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
 
