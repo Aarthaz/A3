@@ -12,7 +12,7 @@ import model.Ferramenta;
 /**
  * simulando a persistencia de dados
  */
-public class FerramentaDAO {
+public class FerramentaDAO extends BaseDAO {
 
     public ArrayList<Ferramenta> minhaLista = new ArrayList<>();
 
