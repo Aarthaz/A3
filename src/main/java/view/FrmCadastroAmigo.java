@@ -4,7 +4,9 @@ import model.Amigo;
 import javax.swing.JOptionPane;
 
 public class FrmCadastroAmigo extends javax.swing.JFrame {
+
     private Amigo objetoamigo;
+
     public FrmCadastroAmigo() {
         initComponents();
         this.objetoamigo = new Amigo();
@@ -113,19 +115,22 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         try {
 
             String nome = "";
-            
+
             String telefone = "";
-            
 
             if (this.JTFNome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
             } else {
                 nome = this.JTFNome.getText();
-            }        
+            }
 
             if (this.JTFTelefone.getText().length() < 8) {
-                throw new Mensagens("O telefone tem que ter pelo menos 8 números."); 
-            //os números de telefone brasileiros tem no minimo 8 caracteres, não contando o DDD    
+                throw new Mensagens("O telefone tem que ter pelo menos 8 números.");
+
+                /**
+                 * os números de telefone brasileiros tem no minimo 8
+                 * caracteres, não contando o DDD
+                 */
             } else {
                 telefone = this.JTFTelefone.getText();
             }
@@ -134,8 +139,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Amigo Cadastrado com Sucesso!");
 
                 this.JTFNome.setText("");
-                
-                
+
                 this.JTFTelefone.setText("");
             }
 
