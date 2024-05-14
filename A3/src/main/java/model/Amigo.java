@@ -29,7 +29,7 @@ public class Amigo extends Base {
         this.telefone = telefone;
     }
 
-
+    //Método toString para imprimir os detalhes do Amigo
     @Override
     public String toString() {
         return super.toString() + "telefone=" + telefone;
