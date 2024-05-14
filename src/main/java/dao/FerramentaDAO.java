@@ -9,19 +9,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import model.Ferramenta;
 
-/**
- * simulando a persistencia de dados
- */
 public class FerramentaDAO extends BaseDAO {
 
     public ArrayList<Ferramenta> minhaLista = new ArrayList<>();
 
     public ArrayList<Ferramenta> getMinhaLista() {
+        //limpa a lista para adicinar novas ferramentas
         minhaLista.clear();
-
         try {
             Statement stmt = this.getConexao().createStatement();
 
+            //Faz uma consulta para selecionar todos os registros da tabela tb_ferramentas
             ResultSet res = stmt.executeQuery("SELECT * FROM tb_ferramentas");
             while (res.next()) {
 
@@ -46,6 +44,7 @@ public class FerramentaDAO extends BaseDAO {
     public boolean insertFerramentaBD(Ferramenta objeto) {
         String sql = "INSERT INTO tb_ferramentas(id,nome,marca,custo) VALUES(?,?,?,?)";
         try {
+            //define os valores dos parametros para o banco de dados
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setInt(1, objeto.getId());
             stmt.setString(2, objeto.getNome());
@@ -57,15 +56,16 @@ public class FerramentaDAO extends BaseDAO {
 
             return true;
         } catch (SQLException erro) {
+            //apresenta erro caso ocorra
             System.out.println("Erro:" + erro);
             throw new RuntimeException(erro);
         }
     }
 
     /**
-     * Carrega um aluno pelo ID
+     * Carrega uma ferramenta pelo ID
      */
-    public Ferramenta carregaAluno(int id) {
+    public Ferramenta carregaFerramenta(int id) {
 
         Ferramenta objeto = new Ferramenta();
         objeto.setId(id);
@@ -75,8 +75,8 @@ public class FerramentaDAO extends BaseDAO {
 
             res.next();
             objeto.setNome(res.getString("nome"));
-            objeto.setMarca(res.getString("idade"));
-            objeto.setCusto(res.getDouble("curso"));
+            objeto.setMarca(res.getString("marca"));
+            objeto.setCusto(res.getDouble("custo"));
 
             stmt.close();
         } catch (SQLException erro) {
@@ -145,9 +145,9 @@ public class FerramentaDAO extends BaseDAO {
          */
         try {
 
-            /**
-             * carregamento do jdbc driver
-              */
+
+            //carregamento do jdbc driver
+             
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
 
@@ -175,7 +175,7 @@ public class FerramentaDAO extends BaseDAO {
             return null;
 
         } catch (SQLException e) {
-            System.out.println("nao foi possivel connectar");
+            System.out.println("nao foi possivel conectar");
             return null;
         }
     }

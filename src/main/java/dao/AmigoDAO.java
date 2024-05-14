@@ -57,10 +57,7 @@ public class AmigoDAO {
             stmt.close();
             return true;
         } catch (SQLException erro) {
-
-            /*
-            Se ocorrer um erro ele mostra
-             */
+            //Se ocorrer um erro ele mostra
             System.out.println("Erro:" + erro);
             throw new RuntimeException(erro);
         }
