@@ -8,8 +8,8 @@ import java.sql.SQLException;
  * Classe para obter uma conexão com o banco de dados
  */
 public class BaseDAO {
-    // Método para obter uma conexão com o banco de dados
 
+    // Método para obter uma conexão com o banco de dados
     public Connection getConnection() {
         Connection connection = null;
 
