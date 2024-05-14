@@ -114,6 +114,9 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
         try {
 
+            /**
+             * Inicializa o cadastro
+             */
             String nome = "";
 
             String telefone = "";
@@ -145,6 +148,9 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
 
             System.out.println(this.objetoamigo.getMinhaLista().toString());
 
+            /**
+             * Pega um erro e mostra ele para o usuario
+             */
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
