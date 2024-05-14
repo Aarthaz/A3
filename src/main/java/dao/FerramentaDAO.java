@@ -9,7 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import model.Ferramenta;
 
-//simulando a persistencia de dados
+/**
+ * simulando a persistencia de dados
+ */
 public class FerramentaDAO {
 
     public ArrayList<Ferramenta> minhaLista = new ArrayList<>();
@@ -38,9 +40,9 @@ public class FerramentaDAO {
         return minhaLista;
     }
 
-    //public void setMinhaLista(ArrayList<Ferramenta> MinhaLista) {
-    //}
-    //cadastra uma ferramenta
+    /**
+     * cadastra uma ferramenta
+     */
     public boolean insertFerramentaBD(Ferramenta objeto) {
         String sql = "INSERT INTO tb_ferramentas(id,nome,marca,custo) VALUES(?,?,?,?)";
         try {
@@ -60,7 +62,9 @@ public class FerramentaDAO {
         }
     }
 
-    //Carrega um aluno pelo ID
+    /**
+     * Carrega um aluno pelo ID
+     */
     public Ferramenta carregaAluno(int id) {
 
         Ferramenta objeto = new Ferramenta();
@@ -81,7 +85,9 @@ public class FerramentaDAO {
         return objeto;
     }
 
-    //altera uma ferramenta
+    /**
+     * altera uma ferramenta
+     */
     public boolean updateFerramentaBD(Ferramenta objeto) {
         String sql = "UPDATE tb_ferramentas set nome = ? , marca = ? , custo = ? WHERE id = ?";
         try {
@@ -101,7 +107,9 @@ public class FerramentaDAO {
         }
     }
 
-    //deleta uma ferramenta
+    /**
+     * deleta uma ferramenta
+     */
     public boolean deleteFerramentaBD(int id) {
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -131,7 +139,10 @@ public class FerramentaDAO {
     }
 
     public Connection getConexao() {
-        Connection connection = null; //instância da conexão
+        Connection connection = null;
+        /**
+         * instância da conexão
+         */
         try {
 
             //carregamento do jdbc driver
