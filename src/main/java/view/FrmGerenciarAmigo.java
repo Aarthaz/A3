@@ -178,10 +178,12 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             }
 
             if (this.JTFTelefone.getText().length() < 8) {
+
+                //os números de telefone brasileiros tem no minimo 8 caracteres, não contando o DDD
                 throw new Mensagens("Telefone precisa de 8 caracteres no minimo");
             } else {
                 telefone = this.JTFTelefone.getText();
-            } //os números de telefone brasileiros tem no minimo 8 caracteres, não contando o DDD
+            }
 
             if (this.JTableAmigo.getSelectedRow() == -1) {
                 throw new Mensagens("Primeiro Selecione uma Ferramenta para Alterar");
@@ -192,13 +194,14 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             //envia os dados para o cadastro
             if (this.objetoamigo.updateAmigoBD(id, nome, telefone)) {
                 JOptionPane.showMessageDialog(rootPane, "Amigo foi alterado com sucesso.");
+
                 //limpa os campos da interface
                 this.JTFNome.setText("");
                 this.JTFTelefone.setText("");
-
             }
-            //exibe no console o amigo alterado
 
+            //exibe no console o amigo alterado
+            //se ocorrer algum erro a interface mostra
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
@@ -242,12 +245,16 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBApagarActionPerformed
 
+    /*
+    * Se o usuario clicar em cima dos nomes na tabela 
+     */
     private void JTableAmigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableAmigoMouseClicked
 
         if (this.JTableAmigo.getSelectedRow() != -1) {
             String nome = this.JTableAmigo.getValueAt(this.JTableAmigo.getSelectedRow(), 1).toString();
             String telefone = this.JTableAmigo.getValueAt(this.JTableAmigo.getSelectedRow(), 2).toString();
 
+            //quando clicado mostra o nome e telefone para possivel alteração ou exclusão
             this.JTFNome.setText(nome);
             this.JTFTelefone.setText(telefone);
 
@@ -260,7 +267,10 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     public void carregaTabela() {
         DefaultTableModel modelo = (DefaultTableModel) this.JTableAmigo.getModel();
-        modelo.setNumRows(0); // Posiciona na primeira linha da tabela
+        
+        // Posiciona na primeira linha da tabela
+        modelo.setNumRows(0);
+        
         // Carrega a lista de objetos amigo
         ArrayList<Amigo> minhaLista = objetoamigo.getMinhaLista();
         for (Amigo a : minhaLista) {
@@ -279,6 +289,8 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                     break;
                 }
             }
+            
+        //se ocorrer um erro a interface mostra
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(FrmGerenciarAmigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
