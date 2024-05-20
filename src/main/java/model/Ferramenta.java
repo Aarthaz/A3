@@ -23,7 +23,9 @@ public class Ferramenta extends ModeloBase {
         dao = new FerramentaDAO();
     }
 
-    //getters e setters
+    /**
+     * getters e setters
+     */
     public String getMarca() {
         return marca;
     }
@@ -45,13 +47,17 @@ public class Ferramenta extends ModeloBase {
         return super.toString() + "marca=" + marca + ", custo=" + custo;
     }
 
-    //abaixo os metodos para uso junto com o dao simulando a estrutura de camadas do banco de dados
-    //retorna a lista de ferramentas
+    
+    /**
+     * retorna a lista de ferramentas
+     */
     public ArrayList<Ferramenta> getMinhaLista() {
         return dao.getMinhaLista();
     }
 
-    //cadastra nova ferramenta
+    /**
+     * cadastra nova ferramenta
+     */
     public boolean insertFerramentaBD(String nome, String marca, double custo) {
         int id = dao.maiorID() + 1;
         Ferramenta objeto = new Ferramenta(id, nome, marca, custo);

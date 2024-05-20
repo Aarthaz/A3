@@ -2,16 +2,22 @@ package model;
 
 public class ModeloBase {
 
-    //atributos
+    /**
+     * atributos
+     */
     private int id;
     private String nome;
 
-    //construtor de objeto sem parametros
+    /**
+     * construtor de objeto sem parametros
+     */
     public ModeloBase() {
         this(0, "");
     }
 
-    //construtor de objeto com parametros
+    /**
+     * construtor de objeto com parametros
+     */
     public ModeloBase(int id, String nome) {
         this.id = id;
         this.nome = nome;

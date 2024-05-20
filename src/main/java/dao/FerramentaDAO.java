@@ -138,11 +138,12 @@ public class FerramentaDAO extends BaseDAO {
         return maiorID;
     }
 
+    /**
+     * conexão como banco de dados
+     */
     public Connection getConexao() {
+        //instância da conexão
         Connection connection = null;
-        /**
-         * instância da conexão
-         */
         try {
 
             //carregamento do jdbc driver
