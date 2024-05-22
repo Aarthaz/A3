@@ -8,7 +8,7 @@ public class Ferramenta extends ModeloBase {
     //atributos
     private String marca;
     private double custo;
-    FerramentaDAO dao;
+    private FerramentaDAO dao;
 
     //construtor de objeto sem parametros
     public Ferramenta() {
