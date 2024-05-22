@@ -9,7 +9,7 @@ public class Amigo extends ModeloBase {
      * atributos
      */
     private String telefone;
-    AmigoDAO dao;
+    private AmigoDAO dao;
 
     /**
      * construtor
