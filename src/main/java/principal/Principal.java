@@ -1,6 +1,6 @@
 package principal;
 
-import view.FrmMenuPrincipal;
+import visao.FrmMenuPrincipal;
 
 public class Principal {
 

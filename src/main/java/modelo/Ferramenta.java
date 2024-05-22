@@ -65,7 +65,9 @@ public class Ferramenta extends ModeloBase {
         return true;
     }
 
-    //deleta uma ferramenta especifica pelo id
+    /**
+     * deleta uma ferramenta especifica pelo id
+     */
     public boolean deleteFerramentaBD(int id) {
         dao.deleteFerramentaBD(id);
         return true;
