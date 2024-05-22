@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Amigo;
+import modelo.Amigo;
 
 public class AmigoDAO extends BaseDAO {
 

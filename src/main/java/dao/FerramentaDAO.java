@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Ferramenta;
+import modelo.Ferramenta;
 
 public class FerramentaDAO extends BaseDAO {
 
