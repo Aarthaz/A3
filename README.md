@@ -10,7 +10,8 @@ Requisitos funcionais:
 -RF07: O sistema deve, à cada novo emprestimo a um amigo, informar se o amigo ainda não devolveu algo.  
 
 Requisitos não-funcionais:  
--RN01: O sistema deve rodar localmente no computador.  
+-RN01: O sistema deve rodar localmente no computador.
+-RN02: O sistema deve usar usar Java 1.8  
 
 Configurações do Banco de Dados:  
 -user: root  
