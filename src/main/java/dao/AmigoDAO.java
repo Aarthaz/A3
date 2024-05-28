@@ -72,7 +72,7 @@ public class AmigoDAO extends BaseDAO {
         }
     }
 
-    /**
+    /***
     * Deleta um amigo do banco de dados
      */
     public boolean deleteAmigoBD(int id) {
