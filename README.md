@@ -2,7 +2,6 @@
 ## A3 da UC de Programação de soluções computacionais, Primeiro semestre, 2024.
 > [!NOTE]
 > O Sistema está escrito em Java e usa um banco de dados SQL  
-![image](https://github.com/Aarthaz/SistemaEmprestimo/assets/165083337/e80242bf-145a-44e5-8cb2-becfed29d41a)![image](https://github.com/Aarthaz/SistemaEmprestimo/assets/165083337/143c9563-511a-4999-9b04-b5cae35511ec)
 
 ## Componentes:
 - Arthur Ramos Bilsland (Aarthaz)
@@ -28,3 +27,5 @@
 ## Configurações do Banco de Dados:  
 - user: root  
 - senha: 1234  
+##
+![image](https://github.com/Aarthaz/SistemaEmprestimo/assets/165083337/e80242bf-145a-44e5-8cb2-becfed29d41a)![image](https://github.com/Aarthaz/SistemaEmprestimo/assets/165083337/143c9563-511a-4999-9b04-b5cae35511ec)
