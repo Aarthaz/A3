@@ -23,7 +23,9 @@ public class ModeloBase {
         this.nome = nome;
     }
 
-    //gets e sets
+    /**
+     * gets e sets
+     */
     public int getId() {
         return id;
     }
