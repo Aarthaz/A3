@@ -5,17 +5,23 @@ import dao.FerramentaDAO;
 
 public class Ferramenta extends ModeloBase {
 
-    //atributos
+    /**
+     * atributos
+     */
     private String marca;
     private double custo;
     private FerramentaDAO dao;
 
-    //construtor de objeto sem parametros
+    /**
+     * construtor de objeto sem parametros
+     */
     public Ferramenta() {
         this(0, "", "", 0);
     }
 
-    //construtor com parametros
+    /**
+     * construtor com parametros
+     */
     public Ferramenta(int id, String nome, String marca, double custo) {
         super(id, nome);
         this.marca = marca;
@@ -73,14 +79,18 @@ public class Ferramenta extends ModeloBase {
         return true;
     }
 
-    //edita uma ferramenta especifica pelo id
+    /**
+     * edita uma ferramenta especifica pelo id
+     */
     public boolean updateFerramentaBD(int id, String nome, String marca, double custo) {
         Ferramenta objeto = new Ferramenta(id, nome, marca, custo);
         dao.updateFerramentaBD(objeto);
         return true;
     }
 
-    //procura o indice de objeto da minhaLista que tem o id enviado
+    /**
+     * procura o indice de objeto da minhaLista que tem o id enviado
+     */
     private int procuraIndice(int id) {
         int indice = -1;
         for (int i = 0; i < dao.minhaLista.size(); i++) {
@@ -91,13 +101,17 @@ public class Ferramenta extends ModeloBase {
         return indice;
     }
 
-    //carrega dados de uma ferramenta especifica pelo id
+    /**
+     * carrega dados de uma ferramenta especifica pelo id
+     */
     public Ferramenta carregaFerramenta(int id) {
         int indice = this.procuraIndice(id);
         return dao.minhaLista.get(indice);
     }
 
-    //retorna o maior id do BD
+    /**
+     * retorna o maior id do BD
+     */
     public int maiorID() {
         return dao.maiorID();
     }
