@@ -2,7 +2,8 @@
 ## A3 da UC de Programação de soluções computacionais, Primeiro semestre, 2024.
 > [!NOTE]
 > O Sistema está escrito em Java e usa um banco de dados SQL  
-![](https://aety.io/wp-content/uploads/2016/11/java-logo-vector.png)![](https://freevectorlogo.net/wp-content/uploads/2012/03/mysql-vector1.jpg)
+![image](https://github.com/Aarthaz/SistemaEmprestimo/assets/165083337/e80242bf-145a-44e5-8cb2-becfed29d41a)![image](https://github.com/Aarthaz/SistemaEmprestimo/assets/165083337/143c9563-511a-4999-9b04-b5cae35511ec)
+
 ## Componentes:
 - Arthur Ramos Bilsland (Aarthaz)
 - Caio Candido Cunha (turt0)
