@@ -4,9 +4,9 @@
 > O Sistema está escrito em Java e usa um banco de dados SQL  
 ![](https://aety.io/wp-content/uploads/2016/11/java-logo-vector.png)![](https://freevectorlogo.net/wp-content/uploads/2012/03/mysql-vector1.jpg)
 ## Componentes:
-- Arthur Ramos Bilsland
-- Caio Candido Cunha
-- Pedro Otávio de Jesus da Rosa
+- Arthur Ramos Bilsland (Aarthaz)
+- Caio Candido Cunha (turt0)
+- Pedro Otávio de Jesus da Rosa ()
 
 ## Levantamento de requisitos:  
 ### Requisitos funcionais:  
