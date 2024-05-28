@@ -171,7 +171,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
             //mensagens de erro
             if (this.JTFNome.getText().length() < 2) {
-                throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+                throw new Mensagem("Nome deve conter ao menos 2 caracteres.");
 
             } else {
                 nome = this.JTFNome.getText();
@@ -180,13 +180,13 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             if (this.JTFTelefone.getText().length() < 8) {
 
                 //os números de telefone brasileiros tem no minimo 8 caracteres, não contando o DDD
-                throw new Mensagens("Telefone precisa de 8 caracteres no minimo");
+                throw new Mensagem("Telefone precisa de 8 caracteres no minimo");
             } else {
                 telefone = this.JTFTelefone.getText();
             }
 
             if (this.JTableAmigo.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro Selecione uma Ferramenta para Alterar");
+                throw new Mensagem("Primeiro Selecione uma Ferramenta para Alterar");
             } else {
                 id = Integer.parseInt(this.JTableAmigo.getValueAt(this.JTableAmigo.getSelectedRow(), 0).toString());
             }
@@ -202,7 +202,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
             //exibe no console o amigo alterado
             //se ocorrer algum erro a interface mostra
-        } catch (Mensagens erro) {
+        } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um número válido.");
@@ -218,7 +218,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
             int id = 0;
             if (this.JTableAmigo.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro Selecione um Amigo para APAGAR");
+                throw new Mensagem("Primeiro Selecione um Amigo para APAGAR");
             } else {
                 id = Integer.parseInt(this.JTableAmigo.getValueAt(this.JTableAmigo.getSelectedRow(), 0).toString());
             }
@@ -237,7 +237,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             }
 
             System.out.println(this.objetoamigo.getMinhaLista().toString());
-        } catch (Mensagens erro) {
+        } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } finally {
 

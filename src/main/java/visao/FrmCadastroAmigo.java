@@ -122,13 +122,13 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
             String telefone = "";
 
             if (this.JTFNome.getText().length() < 2) {
-                throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+                throw new Mensagem("Nome deve conter ao menos 2 caracteres.");
             } else {
                 nome = this.JTFNome.getText();
             }
 
             if (this.JTFTelefone.getText().length() < 8) {
-                throw new Mensagens("O telefone tem que ter pelo menos 8 números.");
+                throw new Mensagem("O telefone tem que ter pelo menos 8 números.");
 
                 /**
                  * os números de telefone brasileiros tem no minimo 8
@@ -151,7 +151,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
             
             //Pega um erro e mostra ele para o usuario
              
-        } catch (Mensagens erro) {
+        } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um número válido.");

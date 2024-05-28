@@ -162,7 +162,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             //validando os dados da interface
             int id = 0;
             if (this.JTableFerramentas.getSelectedRow() == -1){
-                throw new Mensagens("Primeiro selecione uma Ferramenta para apagar.");
+                throw new Mensagem("Primeiro selecione uma Ferramenta para apagar.");
             } else{
                 id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
             }
@@ -185,7 +185,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             
             //atualiza a tabela
             System.out.println(this.objetoferramenta.getMinhaLista().toString());
-        } catch(Mensagens erro){
+        } catch(Mensagem erro){
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } finally{
             //atualiza a tabela
@@ -220,26 +220,26 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
             //mensagens de erro
             if (this.JTFNome.getText().length() < 2) {
-            throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+            throw new Mensagem("Nome deve conter ao menos 2 caracteres.");
         
             } else {
                 nome = this.JTFNome.getText();
             }
             
             if (this.JTFMarca.getText().length() < 2) {
-                throw new Mensagens("Marca precisa de 2 caracteres no minimo");
+                throw new Mensagem("Marca precisa de 2 caracteres no minimo");
             } else {
                 marca = this.JTFMarca.getText();
             }
             
             if(this.JTFCusto.getText().length() <= 0){
-                throw new Mensagens("O valor deve ser maior que zero");
+                throw new Mensagem("O valor deve ser maior que zero");
             } else{
                 custo = Double.parseDouble(this.JTFCusto.getText());
             }  //mencionado apenas pela aplicação, pois a ferramenta pode ser gratis-
             
             if (this.JTableFerramentas.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro Selecione uma Ferramenta para Alterar");
+                throw new Mensagem("Primeiro Selecione uma Ferramenta para Alterar");
             } else {
                 id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
             }
@@ -255,7 +255,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             //exibe no console a ferramenta alterada
             //System.out.println(this.objetoferramenta.getMinhaLista().toString());
             
-        } catch (Mensagens erro) {
+        } catch (Mensagem erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um número válido.");
