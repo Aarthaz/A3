@@ -1,13 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
-/**
- *
- * @author Pichau
- */
-public class EmprestimoDAO {
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import modelo.Emprestimo;
+
+public class EmprestimoDAO extends BaseDAO {
+
+    public boolean deleteEmprestimoBD(int id) {
+        String sql = "DELETE FROM tb_emprestimo WHERE id = ?";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+            stmt.close();
+            return true;
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+            throw new RuntimeException(erro);
+        }
+    }
     
 }
