@@ -4,13 +4,15 @@ import dao.EmprestimoDAO;
 import java.util.Date;
 
 public class Emprestimo extends ModeloBase {
-
+    
+    // Atributos
     private Date dataEmprestimo;
     private Date dataDevolucao;
     private Amigo amigo;
     private Ferramenta ferramenta;
     private EmprestimoDAO dao;
 
+    // Construtores
     public Emprestimo() {
         this(0, null, null, null, null);
     }
@@ -22,7 +24,9 @@ public class Emprestimo extends ModeloBase {
         this.amigo = amigo;
         this.ferramenta = ferramenta;
     }
-
+    
+    
+    // Getters e Setters
     public Date getDataEmprestimo() {
         return dataEmprestimo;
     }
