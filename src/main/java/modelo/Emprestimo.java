@@ -1,13 +1,57 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author Pichau
- */
-public class Emprestimo {
-    
+import dao.EmprestimoDAO;
+import java.util.Date;
+
+public class Emprestimo extends ModeloBase {
+
+    private Date dataEmprestimo;
+    private Date dataDevolucao;
+    private Amigo amigo;
+    private Ferramenta ferramenta;
+    private EmprestimoDAO dao;
+
+    public Emprestimo() {
+        this(0, null, null, null, null);
+    }
+
+    public Emprestimo(int id, Date dataEmprestimo, Date dataDevolucao, Amigo amigo, Ferramenta ferramenta) {
+        super(id, "");
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
+        this.amigo = amigo;
+        this.ferramenta = ferramenta;
+    }
+
+    public Date getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(Date dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+
+    public Amigo getAmigo() {
+        return amigo;
+    }
+
+    public void setAmigo(Amigo amigo) {
+        this.amigo = amigo;
+    }
+
+    public Ferramenta getFerramenta() {
+        return ferramenta;
+    }
+
+    public void setFerramenta(Ferramenta ferramenta) {
+        this.ferramenta = ferramenta;
+    }
 }
