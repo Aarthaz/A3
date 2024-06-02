@@ -58,4 +58,9 @@ public class Emprestimo extends ModeloBase {
     public void setFerramenta(Ferramenta ferramenta) {
         this.ferramenta = ferramenta;
     }
+    
+ public boolean deleteEmprestimoBD(int id) {
+        dao.deleteEmprestimoBD(id);
+        return true;
+    }
 }
