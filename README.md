@@ -6,7 +6,7 @@
 ## Componentes:
 - Arthur Ramos Bilsland (Aarthaz)
 - Caio Candido Cunha (turt0)
-- Pedro Otávio de Jesus da Rosa ()
+- Pedro Otávio de Jesus da Rosa (PedroOtavioDeJesus)
 
 ## Levantamento de requisitos:  
 ### Requisitos funcionais:  
