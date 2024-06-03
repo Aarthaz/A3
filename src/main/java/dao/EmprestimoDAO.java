@@ -3,6 +3,8 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import modelo.Emprestimo;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class EmprestimoDAO extends BaseDAO {
     
@@ -26,7 +28,7 @@ public class EmprestimoDAO extends BaseDAO {
             throw new RuntimeException(erro);
         }
     }
-        
+
     // Método para deletar um empréstimo do banco de dados pelo ID
     public boolean deleteEmprestimoBD(int id) {
         String sql = "DELETE FROM tb_emprestimo WHERE id = ?";
@@ -42,4 +44,18 @@ public class EmprestimoDAO extends BaseDAO {
         }
     }
     
+    public int maiorID() {
+        String sql = "SELECT MAX(id) AS max_id FROM tb_emprestimo";
+        try {
+            Statement stmt = getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            int maxID = rs.getInt("max_id");
+            stmt.close();
+            return maxID;
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+            throw new RuntimeException(erro);
+        }
+    }
 }
