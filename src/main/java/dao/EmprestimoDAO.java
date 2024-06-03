@@ -26,6 +26,8 @@ public class EmprestimoDAO extends BaseDAO {
             throw new RuntimeException(erro);
         }
     }
+   
+     
     // Método para deletar um empréstimo do banco de dados pelo ID
     public boolean deleteEmprestimoBD(int id) {
         String sql = "DELETE FROM tb_emprestimo WHERE id = ?";
