@@ -14,6 +14,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
         JBEmprestimo = new javax.swing.JButton();
         JBRelatorio = new javax.swing.JButton();
+        JBRelatorioFerramentas = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuItemNovaFerramenta = new javax.swing.JMenuItem();
@@ -37,6 +38,13 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         JBRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBRelatorioActionPerformed(evt);
+            }
+        });
+
+        JBRelatorioFerramentas.setText("Gerar Relatório de Ferramentas");
+        JBRelatorioFerramentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRelatorioFerramentasActionPerformed(evt);
             }
         });
 
@@ -99,18 +107,23 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                         .addGap(131, 131, 131)
                         .addComponent(JBEmprestimo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(JBRelatorio)))
-                .addContainerGap(151, Short.MAX_VALUE))
+                        .addGap(146, 146, 146)
+                        .addComponent(JBRelatorio))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(JBRelatorioFerramentas)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(JBEmprestimo)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addComponent(JBRelatorio)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(JBRelatorioFerramentas)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,6 +164,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_JBRelatorioActionPerformed
 
+    private void JBRelatorioFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatorioFerramentasActionPerformed
+        
+    }//GEN-LAST:event_JBRelatorioFerramentasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,6 +206,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBEmprestimo;
     private javax.swing.JButton JBRelatorio;
+    private javax.swing.JButton JBRelatorioFerramentas;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenuArquivo;
     private javax.swing.JMenuBar jMenuBar1;
