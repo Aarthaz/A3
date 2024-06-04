@@ -44,6 +44,7 @@ public class EmprestimoDAO extends BaseDAO {
         }
     }
     
+    // Metodo para obter o maior ID de empréstimo no banco de dados
     public int maiorID() {
         String sql = "SELECT MAX(id) AS max_id FROM tb_emprestimo";
         try {

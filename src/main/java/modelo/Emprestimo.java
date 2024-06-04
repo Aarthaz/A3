@@ -59,12 +59,13 @@ public class Emprestimo extends ModeloBase {
         this.ferramenta = ferramenta;
     }
     
- public boolean deleteEmprestimoBD(int id) {
+    // Métodos DAO
+    public boolean deleteEmprestimoBD(int id) {
         dao.deleteEmprestimoBD(id);
         return true;
     }
  
-   public boolean insertEmprestimoBD(Date dataEmprestimo, Date dataDevolucao, Amigo amigo, Ferramenta ferramenta) {
+    public boolean insertEmprestimoBD(Date dataEmprestimo, Date dataDevolucao, Amigo amigo, Ferramenta ferramenta) {
         int id = dao.maiorID() + 1;
         Emprestimo objeto = new Emprestimo(id, dataEmprestimo, dataDevolucao, amigo, ferramenta);
         dao.insertEmprestimoBD(objeto);
