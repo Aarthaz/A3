@@ -5,14 +5,18 @@ import java.util.Date;
 
 public class Emprestimo extends ModeloBase {
     
-    // Atributos
+    /*
+     * Atributos
+     */
     private Date dataEmprestimo;
     private Date dataDevolucao;
     private Amigo amigo;
     private Ferramenta ferramenta;
     private EmprestimoDAO dao;
 
-    // Construtores
+    /*
+     * Construtores
+     */
     public Emprestimo() {
         this(0, null, null, null, null);
     }
@@ -26,7 +30,9 @@ public class Emprestimo extends ModeloBase {
     }
     
     
-    // Getters e Setters
+    /*
+     * Getters e Setters
+     */
     public Date getDataEmprestimo() {
         return dataEmprestimo;
     }
@@ -59,7 +65,9 @@ public class Emprestimo extends ModeloBase {
         this.ferramenta = ferramenta;
     }
     
-    // Métodos DAO
+    /*
+     * Métodos DAO
+     */
     public boolean deleteEmprestimoBD(int id) {
         dao.deleteEmprestimoBD(id);
         return true;

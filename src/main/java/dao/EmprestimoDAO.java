@@ -32,7 +32,9 @@ public class EmprestimoDAO extends BaseDAO {
         }
     }
 
-    // Método para deletar um empréstimo do banco de dados pelo ID
+    /*
+     * Método para deletar um empréstimo do banco de dados pelo ID
+     */
     public boolean deleteEmprestimoBD(int id) {
         String sql = "DELETE FROM tb_emprestimo WHERE id = ?";
         try {
@@ -47,7 +49,9 @@ public class EmprestimoDAO extends BaseDAO {
         }
     }
     
-    // Metodo para obter o maior ID de empréstimo no banco de dados
+     /*
+      * Metodo para obter o maior ID de empréstimo no banco de dados
+      */
     public int maiorID() {
         String sql = "SELECT MAX(id) AS max_id FROM tb_emprestimo";
         try {
