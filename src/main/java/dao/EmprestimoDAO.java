@@ -5,8 +5,11 @@ import java.sql.SQLException;
 import modelo.Emprestimo;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class EmprestimoDAO extends BaseDAO {
+    
+     public ArrayList<Emprestimo> minhaLista = new ArrayList<>();
     
      public boolean insertEmprestimoBD(Emprestimo emprestimo) {
         
