@@ -165,7 +165,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_JBRelatorioActionPerformed
 
     private void JBRelatorioFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatorioFerramentasActionPerformed
-        
+        FrmRelatorioFerramentas objeto = new FrmRelatorioFerramentas();
+        objeto.setVisible(true);
     }//GEN-LAST:event_JBRelatorioFerramentasActionPerformed
 
     /**
