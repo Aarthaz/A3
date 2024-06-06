@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 
     public class EmprestimoDAO extends BaseDAO {
     
@@ -44,23 +45,22 @@ import java.sql.Statement;
       */
      
      public boolean insertEmprestimoBD(Emprestimo emprestimo) {
+        String sql = "INSERT INTO tb_emprestimos (idA, dtEmprestimo, dtDevolucao) VALUES (?, ?, ?)";
         
-        String sql = "INSERT INTO tb_emprestimo (data_emprestimo, data_devolucao, id_amigo, id_ferramenta) VALUES (?, ?, ?, ?)";
-
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(sql);
-            stmt.setDate(1, new java.sql.Date(emprestimo.getDataEmprestimo().getTime()));
-            stmt.setDate(2, new java.sql.Date(emprestimo.getDataDevolucao().getTime()));
-            stmt.setInt(3, emprestimo.getAmigo().getId());
-            stmt.setInt(4, emprestimo.getFerramenta().getId());
-
-            stmt.execute();
-            stmt.close();
-
-            return true;
-        } catch (SQLException erro) {
-            erro.printStackTrace();
-            throw new RuntimeException(erro);
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setInt(1, emprestimo.getAmigo().getId());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            pstmt.setString(2, sdf.format(emprestimo.getDtEmprestimo()));
+            pstmt.setString(3, sdf.format(emprestimo.getDtDevolucao()));
+            
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 

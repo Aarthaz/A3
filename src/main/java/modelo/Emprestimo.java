@@ -1,6 +1,5 @@
 package modelo;
 
-import dao.EmprestimoDAO;
 import java.util.Date;
 
 public class Emprestimo extends ModeloBase {
@@ -8,23 +7,25 @@ public class Emprestimo extends ModeloBase {
     /*
      * Atributos
      */
-    private Date dataEmprestimo;
-    private Date dataDevolucao;
+    
+    private int id;
+    private Date dtEmprestimo;
+    private Date dtDevolucao;
     private Amigo amigo;
     private Ferramenta ferramenta;
-    private EmprestimoDAO dao;
 
     /*
      * Construtores
      */
+    
     public Emprestimo() {
         this(0, null, null, null, null);
     }
 
-    public Emprestimo(int id, Date dataEmprestimo, Date dataDevolucao, Amigo amigo, Ferramenta ferramenta) {
-        super(id, "");
-        this.dataEmprestimo = dataEmprestimo;
-        this.dataDevolucao = dataDevolucao;
+      public Emprestimo(int id, Date dtEmprestimo, Date dtDevolucao, Amigo amigo, Ferramenta ferramenta) {
+        this.id = id;
+        this.dtEmprestimo = dtEmprestimo;
+        this.dtDevolucao = dtDevolucao;
         this.amigo = amigo;
         this.ferramenta = ferramenta;
     }
@@ -33,22 +34,22 @@ public class Emprestimo extends ModeloBase {
     /*
      * Getters e Setters
      */
-    public Date getDataEmprestimo() {
-        return dataEmprestimo;
+    public Date getDtEmprestimo() {
+        return dtEmprestimo;
     }
 
-    public void setDataEmprestimo(Date dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
+    public void setDtEmprestimo(Date dtEmprestimo) {
+        this.dtEmprestimo = dtEmprestimo;
     }
 
-    public Date getDataDevolucao() {
-        return dataDevolucao;
+    public Date getDtDevolucao() {
+        return dtDevolucao;
     }
 
-    public void setDataDevolucao(Date dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
+    public void setDtDevolucao(Date dtDevolucao) {
+        this.dtDevolucao = dtDevolucao;
     }
-
+    
     public Amigo getAmigo() {
         return amigo;
     }
@@ -63,24 +64,5 @@ public class Emprestimo extends ModeloBase {
 
     public void setFerramenta(Ferramenta ferramenta) {
         this.ferramenta = ferramenta;
-    }
-    
-    /*
-     * Métodos DAO
-     */
-    public boolean deleteEmprestimoBD(int id) {
-        dao.deleteEmprestimoBD(id);
-        return true;
-    }
- 
-    public boolean insertEmprestimoBD(Date dataEmprestimo, Date dataDevolucao, Amigo amigo, Ferramenta ferramenta) {
-        int id = dao.maiorID() + 1;
-        Emprestimo objeto = new Emprestimo(id, dataEmprestimo, dataDevolucao, amigo, ferramenta);
-        dao.insertEmprestimoBD(objeto);
-        return true;
-    }
-   
-       public int maiorID() {
-        return dao.maiorID();
     }
 }
