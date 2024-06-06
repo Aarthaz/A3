@@ -98,4 +98,26 @@ import java.text.SimpleDateFormat;
             throw new RuntimeException(erro);
         }
     }
+    
+       /*
+        * Método que atualiza um registro de empréstimo no banco de dados   
+        */
+    
+       public boolean updateEmprestimoBD(Emprestimo emprestimo) {
+        String sql = "UPDATE tb_emprestimos SET dtEmprestimo = ?, dtDevolucao = ?, idA = ? WHERE idE = ?";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt.setDate(1, new java.sql.Date(emprestimo.getDtEmprestimo().getTime()));
+            stmt.setDate(2, new java.sql.Date(emprestimo.getDtDevolucao().getTime()));
+            stmt.setInt(3, emprestimo.getAmigo().getId());
+            stmt.setInt(4, emprestimo.getFerramenta().getId());
+
+            stmt.executeUpdate();
+            stmt.close();
+            return true;
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+            throw new RuntimeException(erro);
+        }
+    }
 }
