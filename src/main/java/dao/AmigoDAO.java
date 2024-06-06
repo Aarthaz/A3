@@ -123,6 +123,27 @@ public class AmigoDAO extends BaseDAO {
             throw new RuntimeException(erro);
         }
     }
+    
+    public Amigo carregaAmigo(int id) {
+        Amigo amigo = null;
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM tb_amigo WHERE id = ?");
+            stmt.setInt(1, id);
+            ResultSet res = stmt.executeQuery();
+
+            if (res.next()) {
+                String nome = res.getString("nome");
+                String telefone = res.getString("telefone");
+
+                amigo = new Amigo(id, nome, telefone);
+            }
+
+            stmt.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return amigo;
+    }
 
     public int maiorID() {
         // Variável para armazenar o maior ID encontrado na tabela
