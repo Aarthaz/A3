@@ -83,14 +83,4 @@ public class Emprestimo extends ModeloBase {
        public int maiorID() {
         return dao.maiorID();
     }
-       
-       private int procuraIndice(int id) {
-        int indice = -1;
-        for (int i = 0; i < dao.minhaLista.size(); i++) {
-            if (dao.minhaLista.get(i).getId() == id) {
-                indice = i;
-            }
-        }
-        return indice;
-    }
 }

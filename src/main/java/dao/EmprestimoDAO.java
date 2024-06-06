@@ -1,16 +1,48 @@
 package dao;
 
+import modelo.Emprestimo;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import modelo.Emprestimo;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.util.List;
 import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-public class EmprestimoDAO extends BaseDAO {
+    public class EmprestimoDAO extends BaseDAO {
     
-     public ArrayList<Emprestimo> minhaLista = new ArrayList<>();
-    
+        private static final String URL = "jdbc:mysql://localhost:3306/db_ferramentas";
+        private static final String USER = "root"; 
+        private static final String PASSWORD = "1234"; 
+
+        private Connection connect() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+     
+     /*
+      * Método para obter a lista de todos os empréstimos
+      */
+        
+     public List<Emprestimo> getMinhaLista() {
+        List<Emprestimo> emprestimos = new ArrayList<>();
+        String sql = "SELECT * FROM tb_emprestimos";
+        
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {   
+            while (rs.next()) {               
+            }           
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }      
+        return emprestimos;
+    }
+     
+     /*
+      * Método para inserir um novo empréstimo no banco de dados
+      */
+     
      public boolean insertEmprestimoBD(Emprestimo emprestimo) {
         
         String sql = "INSERT INTO tb_emprestimo (data_emprestimo, data_devolucao, id_amigo, id_ferramenta) VALUES (?, ?, ?, ?)";
