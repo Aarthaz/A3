@@ -1,10 +1,18 @@
 package visao;
 
 import dao.AmigoDAO;
+import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import modelo.Amigo;
+import modelo.Emprestimo;
 import modelo.Ferramenta;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class FrmEmprestimo extends javax.swing.JFrame {
@@ -15,6 +23,13 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         initComponents();
         loadAmigos();
         loadFerramentas();
+        
+        btnAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addEmprestimo(e);
+            }
+        });
     }
 
    
@@ -145,6 +160,72 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         cmbFerramenta.removeAllItems();
         for (Ferramenta ferramenta : ferramentas) {
             cmbFerramenta.addItem(ferramenta.getNome());
+        }
+    }
+    
+    private void addEmprestimo(java.awt.event.ActionEvent evt) {
+        String dataEmprestimoText = txtDataEmprestimo.getText();
+        String dataDevolucaoText = txtDataDevolucao.getText();
+        String nomeAmigoSelecionado = (String) cmbAmigo.getSelectedItem();
+        String nomeFerramentaSelecionada = (String) cmbFerramenta.getSelectedItem();
+
+        if (dataEmprestimoText.isEmpty() || dataDevolucaoText.isEmpty() || nomeAmigoSelecionado == null || nomeFerramentaSelecionada == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Date dataEmprestimo;
+        Date dataDevolucao;
+        
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            dataEmprestimo = sdf.parse(dataEmprestimoText);
+            dataDevolucao = sdf.parse(dataDevolucaoText);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(this, "Formato de data inválido. Use yyyy-MM-dd.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Amigo amigoSelecionado = null;
+        for (Amigo amigo : amigos) {
+            if (amigo.getNome().equals(nomeAmigoSelecionado)) {
+                amigoSelecionado = amigo;
+                break;
+            }
+        }
+
+        if (amigoSelecionado == null) {
+            JOptionPane.showMessageDialog(this, "Amigo não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Ferramenta ferramentaSelecionada = null;
+        FerramentaDAO ferramentaDAO = new FerramentaDAO();
+        List<Ferramenta> ferramentas = ferramentaDAO.getMinhaLista();
+        for (Ferramenta ferramenta : ferramentas) {
+            if (ferramenta.getNome().equals(nomeFerramentaSelecionada)) {
+                ferramentaSelecionada = ferramenta;
+                break;
+            }
+        }
+
+        if (ferramentaSelecionada == null) {
+            JOptionPane.showMessageDialog(this, "Ferramenta não encontrada.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Emprestimo emprestimo = new Emprestimo(0, dataEmprestimo, dataDevolucao, amigoSelecionado, ferramentaSelecionada);
+        EmprestimoDAO dao = new EmprestimoDAO();
+        boolean sucesso = dao.insertEmprestimoBD(emprestimo);
+
+        if (sucesso) {
+            JOptionPane.showMessageDialog(this, "Empréstimo adicionado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            txtDataEmprestimo.setText("");
+            txtDataDevolucao.setText("");
+            cmbAmigo.setSelectedIndex(-1);
+            cmbFerramenta.setSelectedIndex(-1);
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao adicionar empréstimo.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
     
