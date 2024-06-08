@@ -30,9 +30,16 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                 addEmprestimo(e);
             }
         });
+        
+         btnDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteEmprestimo(e);
+            }
+        });
     }
 
-   
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -229,7 +236,31 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         }
     }
     
-    public static void main(String args[]) {
+    private void deleteEmprestimo(java.awt.event.ActionEvent evt) {
+        String idText = JOptionPane.showInputDialog(this, "Digite o ID do empréstimo a ser deletado:");
+        if (idText == null || idText.isEmpty()) {
+            return;
+        }
+
+        int id;
+        try {
+            id = Integer.parseInt(idText);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "ID inválido.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        EmprestimoDAO dao = new EmprestimoDAO();
+        boolean sucesso = dao.deleteEmprestimoBD(id);
+
+        if (sucesso) {
+            JOptionPane.showMessageDialog(this, "Empréstimo deletado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao deletar empréstimo.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public static void main(String args[]) {    
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
