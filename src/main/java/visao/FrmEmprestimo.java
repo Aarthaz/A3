@@ -185,11 +185,11 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         Date dataDevolucao;
         
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             dataEmprestimo = sdf.parse(dataEmprestimoText);
             dataDevolucao = sdf.parse(dataDevolucaoText);
         } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(this, "Formato de data inválido. Use yyyy-MM-dd.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Formato de data inválido. Use dd-MM-yyyy.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
