@@ -54,6 +54,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         lblDataEmprestimo = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Realizar Empréstimo");
@@ -88,6 +89,13 @@ public class FrmEmprestimo extends javax.swing.JFrame {
 
         lblDataEmprestimo.setText("Data de Empréstimo:");
 
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,7 +123,9 @@ public class FrmEmprestimo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addComponent(btnAdd)
-                .addGap(184, 184, 184)
+                .addGap(48, 48, 48)
+                .addComponent(btnCancelar)
+                .addGap(61, 61, 61)
                 .addComponent(btnDelete)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -137,7 +147,8 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(btnDelete))
+                    .addComponent(btnDelete)
+                    .addComponent(btnCancelar))
                 .addGap(33, 33, 33))
         );
 
@@ -151,6 +162,10 @@ public class FrmEmprestimo extends javax.swing.JFrame {
     private void cmbAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAmigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbAmigoActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+         dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void loadAmigos() {
         AmigoDAO amigoDAO = new AmigoDAO();
@@ -271,6 +286,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnDelete;
     private javax.swing.JComboBox cmbAmigo;
     private javax.swing.JComboBox<String> cmbFerramenta;
