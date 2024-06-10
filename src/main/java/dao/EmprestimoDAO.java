@@ -51,7 +51,7 @@ import java.text.SimpleDateFormat;
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             
             pstmt.setInt(1, emprestimo.getAmigo().getId());
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             pstmt.setString(2, sdf.format(emprestimo.getDtEmprestimo()));
             pstmt.setString(3, sdf.format(emprestimo.getDtDevolucao()));
             
