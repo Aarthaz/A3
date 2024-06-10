@@ -68,7 +68,7 @@ import java.text.SimpleDateFormat;
      * Método para deletar um empréstimo do banco de dados pelo ID
      */
     public boolean deleteEmprestimoBD(int id) {
-        String sql = "DELETE FROM tb_emprestimo WHERE id = ?";
+        String sql = "DELETE FROM tb_emprestimos WHERE idE = ?";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setInt(1, id);
@@ -85,7 +85,7 @@ import java.text.SimpleDateFormat;
       * Metodo para obter o maior ID de empréstimo no banco de dados
       */
     public int maiorID() {
-        String sql = "SELECT MAX(id) AS max_id FROM tb_emprestimo";
+        String sql = "SELECT MAX(id) AS max_id FROM tb_emprestimos";
         try {
             Statement stmt = getConnection().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
